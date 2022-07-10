@@ -7,7 +7,6 @@ Created on Fri Jul  8 13:17:13 2022
 
 import streamlit as st
 import pandas as pd
-import plotly_express as px
 
 
 st.set_option('deprecation.showfileUploaderEncoding',False)
