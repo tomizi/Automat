@@ -14,7 +14,7 @@ st.set_option('deprecation.showfileUploaderEncoding',False)
 
 st.title('Wszystkie pliki')
 
-st.sidebar.subheader('Ustawienia')
+st.sidebar.subheader('Dodawanie plików')
 
 uploaded_file = st.sidebar.file_uploader(label='Wprwadź pliki', type=['xlsx'],accept_multiple_files=True)
 uploaded_file1 = st.sidebar.file_uploader(label='Wprwadź plik z ostatniego miesiąca', type=['xlsx'])
@@ -36,7 +36,7 @@ if uploaded_file is not None:
 
     try:
         zl = pd.concat(l,ignore_index=True)
-        st.write('Złączone pliki')
+        st.subheader('Złączone pliki')
         st.write(zl)
     except Exception as e:
         print(e)
@@ -45,7 +45,7 @@ if uploaded_file is not None:
     
     try:
         z = zl.drop_duplicates('Producent',ignore_index=True)
-        st.write('Unikatowi producenci i ich RKMH')
+        st.header('Unikatowi producenci i ich RKMH')
         st.download_button(label = 'Pobierz plik', data = z.to_csv(index=False,encoding = 'utf-8'),file_name = 'Porównanie_IPRA.csv', mime = "text/csv")
         st.write(z)
     except Exception as e:
@@ -60,7 +60,7 @@ if uploaded_file is not None:
             st.write('Złe rozszerzenie pliku. Może być tylko .xlsx!')
             
     try:
-        st.write('Plik z ostatniego miesiąca')
+        st.subheader('Plik z ostatniego miesiąca')
         st.write(df1)
     except Exception as e:
         print(e)
@@ -68,7 +68,7 @@ if uploaded_file is not None:
         
     try:
         z1 = z[~z['Producent'].isin(df1.Producent)].reset_index().iloc[:,1:3]
-        st.write('dane o producentach co byli, a nie ma ich w pliku z ostatniego miesiąca')
+        st.header('dane o producentach co byli, a nie ma ich w pliku z ostatniego miesiąca')
         st.download_button(label = 'Pobierz plik', data = z1.to_csv(index=False,encoding = 'utf-8'),file_name = 'Odeszli.csv', mime = "text/csv")
         st.write(z1)
     except Exception as e:
