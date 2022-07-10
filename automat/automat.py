@@ -69,8 +69,7 @@ if uploaded_file is not None:
     try:
         z1 = z[~z['Producent'].isin(df1.Producent)].reset_index().iloc[:,1:3]
         st.write('dane o producentach co byli, a nie ma ich w pliku z ostatniego miesiąca')
-        z2 = pd
-        st.download_button(label = 'Pobierz plik', data = z.to_csv(index=False,encoding = 'utf-8'),file_name = 'Odeszli.csv', mime = "text/csv")
+        st.download_button(label = 'Pobierz plik', data = z1.to_csv(index=False,encoding = 'utf-8'),file_name = 'Odeszli.csv', mime = "text/csv")
         st.write(z1)
     except Exception as e:
         print(e)
