@@ -29,7 +29,7 @@ if uploaded_file is not None:
             df = pd.read_excel(uploaded_file[i],usecols='C,K')
             l.append(df)
     except Exception as e:
-        print(e)
+        st.write(str(e))
         st.write('Złe rozszerzenie pliku. Może być tylko .xlsx!')
         
 
