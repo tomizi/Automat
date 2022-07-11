@@ -35,8 +35,8 @@ if uploaded_file is not None:
         
 
     try:
-        zl = pd.concat(l,ignore_index=True)
         st.subheader('Złączone pliki')
+        zl = pd.concat(l,ignore_index=True)
         st.write(zl)
     except Exception as e:
         st.write('Czekam na dane')
@@ -66,8 +66,8 @@ if uploaded_file is not None:
         st.write('Czekam na dane')
         
     try:
-        z1 = z[~z['Producent'].isin(df1.Producent)].reset_index().iloc[:,1:3]
         st.header('dane o producentach co byli, a nie ma ich w pliku z ostatniego miesiąca')
+        z1 = z[~z['Producent'].isin(df1.Producent)].reset_index().iloc[:,1:3]
         st.download_button(label = 'Pobierz plik', data = z1.to_csv(index=False,encoding = 'utf-8'),file_name = 'Odeszli.csv', mime = "text/csv")
         st.write(z1)
     except Exception as e:
