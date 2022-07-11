@@ -14,7 +14,7 @@ st.set_page_config(page_title='Porównanie RKMH', page_icon = ':bar_chart:', lay
 
 st.set_option('deprecation.showfileUploaderEncoding',False)
 
-st.title('Wszystkie pliki')
+st.title(':floppy_disk: Wszystkie pliki')
 
 st.sidebar.subheader('Dodawanie plików')
 
