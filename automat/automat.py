@@ -10,7 +10,7 @@ import pandas as pd
 import openpyxl
 
 
-st.set_page_config(page_title='Model prognostyczny dla leków', page_icon = ':bar_chart:', layout='wide')
+st.set_page_config(page_title='Porównanie RKMH', page_icon = ':bar_chart:', layout='wide')
 
 st.set_option('deprecation.showfileUploaderEncoding',False)
 
