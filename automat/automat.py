@@ -63,7 +63,7 @@ if uploaded_file is not None:
         st.write(df1)
     except Exception as e:
         print(e)
-        st.write('Czekam na dane)
+        st.write('Czekam na dane')
         
     try:
         z1 = z[~z['Producent'].isin(df1.Producent)].reset_index().iloc[:,1:3]
